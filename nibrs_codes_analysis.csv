@@ -1,0 +1,150 @@
+nibrs_code,description,sources,has_variation,desc_2009_2020,desc_axon
+09A,Murder & Nonnegligent Manslaughter,"2009-2020, Axon",True,HOMICIDE,Murder & Nonnegligent Manslaughter
+100,Kidnapping/Abduction,Axon,False,,Kidnapping/Abduction
+1006,AGG ASSAULT,2009-2020,False,AGG ASSAULT,
+105,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+11A,Rape,Axon,False,,Rape
+11B,Sodomy,Axon,False,,Sodomy
+11C,Sexual Assault with An Object,Axon,False,,Sexual Assault with An Object
+11D,Fondling,Axon,False,,Fondling
+120,ROBBERY,"2009-2020, Axon",True,ROBBERY,Robbery
+1201,ROBBERY,2009-2020,False,ROBBERY,
+1201C,ROBBERY,2009-2020,False,ROBBERY,
+1201D,ROBBERY,2009-2020,False,ROBBERY,
+1202,ROBBERY,2009-2020,False,ROBBERY,
+1202J,ROBBERY,2009-2020,False,ROBBERY,
+1202K,ROBBERY,2009-2020,False,ROBBERY,
+1202L,ROBBERY,2009-2020,False,ROBBERY,
+1202Q,ROBBERY,2009-2020,False,ROBBERY,
+1202R,ROBBERY,2009-2020,False,ROBBERY,
+1203,ROBBERY,2009-2020,False,ROBBERY,
+1203X,ROBBERY,2009-2020,False,ROBBERY,
+1203Y,ROBBERY,2009-2020,False,ROBBERY,
+1204,ROBBERY,2009-2020,False,ROBBERY,
+1205,ROBBERY,2009-2020,False,ROBBERY,
+1205K,ROBBERY,2009-2020,False,ROBBERY,
+1206,ROBBERY,2009-2020,False,ROBBERY,
+1207,ROBBERY,2009-2020,False,ROBBERY,
+1208,ROBBERY,2009-2020,False,ROBBERY,
+1208K,ROBBERY,2009-2020,False,ROBBERY,
+1209,ROBBERY,2009-2020,False,ROBBERY,
+1211G,ROBBERY,2009-2020,False,ROBBERY,
+1211K,ROBBERY,2009-2020,False,ROBBERY,
+1211O,ROBBERY,2009-2020,False,ROBBERY,
+1211S,ROBBERY,2009-2020,False,ROBBERY,
+1212,ROBBERY,2009-2020,False,ROBBERY,
+1299G,ROBBERY,2009-2020,False,ROBBERY,
+1299K,ROBBERY,2009-2020,False,ROBBERY,
+1299O,ROBBERY,2009-2020,False,ROBBERY,
+1299S,ROBBERY,2009-2020,False,ROBBERY,
+1313,AGG ASSAULT,2009-2020,False,AGG ASSAULT,
+1314,AGG ASSAULT,2009-2020,False,AGG ASSAULT,
+1315,AGG ASSAULT,2009-2020,False,AGG ASSAULT,
+1315K,AGG ASSAULT,2009-2020,False,AGG ASSAULT,
+1316,AGG ASSAULT,2009-2020,False,AGG ASSAULT,
+1318,AGG ASSAULT,2009-2020,False,AGG ASSAULT,
+1376,AGG ASSAULT,2009-2020,False,AGG ASSAULT,
+1377,AGG ASSAULT,2009-2020,False,AGG ASSAULT,
+1399,AGG ASSAULT,2009-2020,False,AGG ASSAULT,
+13A,Aggravated Assault,"2009-2020, Axon",True,AGG ASSAULT,Aggravated Assault
+13B,Simple Assault,Axon,False,,Simple Assault
+13C,Intimidation,Axon,False,,Intimidation
+200,Arson,Axon,False,,Arson
+2006,BURGLARY,2009-2020,False,BURGLARY,
+2099,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+210,Extortion/Blackmail,Axon,False,,Extortion/Blackmail
+220,Burglary/Breaking & Entering,"2009-2020, Axon",True,BURGLARY,Burglary/Breaking & Entering
+2202,BURGLARY,2009-2020,False,BURGLARY,
+2202A,BURGLARY,2009-2020,False,BURGLARY,
+2203,BURGLARY,2009-2020,False,BURGLARY,
+2203A,BURGLARY,2009-2020,False,BURGLARY,
+2204,BURGLARY,2009-2020,False,BURGLARY,
+2205,BURGLARY,2009-2020,False,BURGLARY,
+2206,AUTO THEFT,2009-2020,False,AUTO THEFT,
+2301,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2302,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2303,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2304,LARCENY-FROM VEHICLE,2009-2020,False,LARCENY-FROM VEHICLE,
+2305,LARCENY-FROM VEHICLE,2009-2020,False,LARCENY-FROM VEHICLE,
+2307,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2308,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2310,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2314,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2316,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2317,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2318,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2361,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2373,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2374,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2382,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+2399,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+23A,LARCENY-NON VEHICLE,"2009-2020, Axon",True,LARCENY-NON VEHICLE,Pocket-picking
+23B,LARCENY-NON VEHICLE,"2009-2020, Axon",True,LARCENY-NON VEHICLE,Purse-snatching
+23C,LARCENY-NON VEHICLE,"2009-2020, Axon",True,LARCENY-NON VEHICLE,Shoplifting
+23D,LARCENY-NON VEHICLE,"2009-2020, Axon",True,LARCENY-NON VEHICLE,Theft From Building
+23E,Theft From Coin-Operated Machine or Device,"2009-2020, Axon",True,LARCENY-NON VEHICLE,Theft From Coin-Operated Machine or Device
+23F,Theft From Motor Vehicle,"2009-2020, Axon",True,LARCENY-FROM VEHICLE,Theft From Motor Vehicle
+23G,Theft of Motor Vehicle Parts or Accessories,"2009-2020, Axon",True,LARCENY-FROM VEHICLE,Theft of Motor Vehicle Parts or Accessories
+23H,LARCENY-NON VEHICLE,"2009-2020, Axon",True,LARCENY-NON VEHICLE,All Other Larceny
+240,Motor Vehicle Theft,"2009-2020, Axon",True,AUTO THEFT,Motor Vehicle Theft
+2404,AUTO THEFT,2009-2020,False,AUTO THEFT,
+2404A,AUTO THEFT,2009-2020,False,AUTO THEFT,
+2424,AUTO THEFT,2009-2020,False,AUTO THEFT,
+2424A,AUTO THEFT,2009-2020,False,AUTO THEFT,
+2434,AUTO THEFT,2009-2020,False,AUTO THEFT,
+2434A,AUTO THEFT,2009-2020,False,AUTO THEFT,
+250,Counterfeiting/Forgery,Axon,False,,Counterfeiting/Forgery
+2599,ROBBERY,2009-2020,False,ROBBERY,
+26A,False Pretenses/Swindle/Confidence Game,Axon,False,,False Pretenses/Swindle/Confidence Game
+26B,Credit Card/Automated Teller Machine Fraud,Axon,False,,Credit Card/Automated Teller Machine Fraud
+26C,Impersonation,Axon,False,,Impersonation
+26D,Welfare Fraud,Axon,False,,Welfare Fraud
+26E,Wire Fraud,Axon,False,,Wire Fraud
+26F,Identity Theft,Axon,False,,Identity Theft
+26G,Hacking/Computer Invasion,Axon,False,,Hacking/Computer Invasion
+270,Embezzelment,Axon,False,,Embezzelment
+280,Stolen Property Offenses,Axon,False,,Stolen Property Offenses
+2803,LARCENY-FROM VEHICLE,2009-2020,False,LARCENY-FROM VEHICLE,
+2804,LARCENY-FROM VEHICLE,2009-2020,False,LARCENY-FROM VEHICLE,
+2899,LARCENY-NON VEHICLE,2009-2020,False,LARCENY-NON VEHICLE,
+290,Destruction/Damage/Vandalism of Property,Axon,False,,Destruction/Damage/Vandalism of Property
+2902,LARCENY-FROM VEHICLE,2009-2020,False,LARCENY-FROM VEHICLE,
+3562,AGG ASSAULT,2009-2020,False,AGG ASSAULT,
+35A,Drug/Narcotic Violations,Axon,False,,Drug/Narcotic Violations
+35B,Drug Equipment Violations,Axon,False,,Drug Equipment Violations
+36A,Incest,Axon,False,,Incest
+36B,Statutory Rape,Axon,False,,Statutory Rape
+370,Pornography/Obscene Material,Axon,False,,Pornography/Obscene Material
+39B,Operating/Promoting/Assisting Gambling,Axon,False,,Operating/Promoting/Assisting Gambling
+39C,Gambling Equipment Violations,Axon,False,,Gambling Equipment Violations
+40A,Prostitution,Axon,False,,Prostitution
+40B,Assisting or Promoting Prostitution,Axon,False,,Assisting or Promoting Prostitution
+510,Bribery,Axon,False,,Bribery
+520,Weapon Law Violations,Axon,False,,Weapon Law Violations
+5299,AGG ASSAULT,2009-2020,False,AGG ASSAULT,
+5311,AGG ASSAULT,2009-2020,False,AGG ASSAULT,
+5707,AUTO THEFT,2009-2020,False,AUTO THEFT,
+64A,"Human Trafficking, Commercial Sex Acts",Axon,False,,"Human Trafficking, Commercial Sex Acts"
+64B,"Human Trafficking, Involuntary Servitude",Axon,False,,"Human Trafficking, Involuntary Servitude"
+720,Animal Cruelty,Axon,False,,Animal Cruelty
+7399,ROBBERY,2009-2020,False,ROBBERY,
+8,HOMICIDE,2009-2020,False,HOMICIDE,
+901,HOMICIDE,2009-2020,False,HOMICIDE,
+902,HOMICIDE,2009-2020,False,HOMICIDE,
+903,HOMICIDE,2009-2020,False,HOMICIDE,
+904,HOMICIDE,2009-2020,False,HOMICIDE,
+90A,Bad Checks,Axon,False,,Bad Checks
+90B,Curfew/Loitering/Vagrancy Violations,Axon,False,,Curfew/Loitering/Vagrancy Violations
+90C,Disorderly Conduct,Axon,False,,Disorderly Conduct
+90D,Driving Under the Influence,Axon,False,,Driving Under the Influence
+90E,Drunkenness,Axon,False,,Drunkenness
+90F,"Family Offenses, Nonviolent",Axon,False,,"Family Offenses, Nonviolent"
+90G,Liquor Law Violations,Axon,False,,Liquor Law Violations
+90H,Peeping Tom,Axon,False,,Peeping Tom
+90J,Trespass of Real Property,Axon,False,,Trespass of Real Property
+90Z,All Other Offenses,Axon,False,,All Other Offenses
+911,HOMICIDE,2009-2020,False,HOMICIDE,
+912,HOMICIDE,2009-2020,False,HOMICIDE,
+9920,LARCENY-FROM VEHICLE,2009-2020,False,LARCENY-FROM VEHICLE,
+999,HOMICIDE,2009-2020,False,HOMICIDE,
+9999,LARCENY-FROM VEHICLE,2009-2020,False,LARCENY-FROM VEHICLE,

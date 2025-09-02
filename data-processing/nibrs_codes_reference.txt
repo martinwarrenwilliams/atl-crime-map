@@ -1,0 +1,676 @@
+NIBRS CODES AND OFFENSE DESCRIPTIONS - ATLANTA CRIME DATA
+======================================================================
+Total unique NIBRS codes found: 149
+Codes in 2009-2020 data: 105
+Codes in 2020+ data: 57
+======================================================================
+
+Code: 09A
+  Sources: 2009-2020, 2020+
+  Descriptions (2 variations):
+    - HOMICIDE
+    - Murder & Nonnegligent Manslaughter
+
+Code: 100
+  Sources: 2020+
+  Description: Kidnapping/Abduction
+
+Code: 1006
+  Sources: 2009-2020
+  Description: AGG ASSAULT
+
+Code: 105
+  Sources: 2009-2020
+  Description: LARCENY-NON VEHICLE
+
+Code: 11A
+  Sources: 2020+
+  Description: Rape
+
+Code: 11B
+  Sources: 2020+
+  Description: Sodomy
+
+Code: 11C
+  Sources: 2020+
+  Description: Sexual Assault with An Object
+
+Code: 11D
+  Sources: 2020+
+  Description: Fondling
+
+Code: 120
+  Sources: 2009-2020, 2020+
+  Descriptions (2 variations):
+    - ROBBERY
+    - Robbery
+
+Code: 1201
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1201C
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1201D
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1202
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1202J
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1202K
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1202L
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1202Q
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1202R
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1203
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1203X
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - LARCENY-NON VEHICLE
+    - ROBBERY
+
+Code: 1203Y
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1204
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1205
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1205K
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1206
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1207
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1208
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1208K
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1209
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1211G
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1211K
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1211O
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1211S
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1212
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1299G
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1299K
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1299O
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 1299S
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - LARCENY-NON VEHICLE
+    - ROBBERY
+
+Code: 1313
+  Sources: 2009-2020
+  Description: AGG ASSAULT
+
+Code: 1314
+  Sources: 2009-2020
+  Description: AGG ASSAULT
+
+Code: 1315
+  Sources: 2009-2020
+  Description: AGG ASSAULT
+
+Code: 1315K
+  Sources: 2009-2020
+  Description: AGG ASSAULT
+
+Code: 1316
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - AGG ASSAULT
+    - LARCENY-NON VEHICLE
+
+Code: 1318
+  Sources: 2009-2020
+  Description: AGG ASSAULT
+
+Code: 1376
+  Sources: 2009-2020
+  Description: AGG ASSAULT
+
+Code: 1377
+  Sources: 2009-2020
+  Description: AGG ASSAULT
+
+Code: 1399
+  Sources: 2009-2020
+  Description: AGG ASSAULT
+
+Code: 13A
+  Sources: 2009-2020, 2020+
+  Descriptions (2 variations):
+    - AGG ASSAULT
+    - Aggravated Assault
+
+Code: 13B
+  Sources: 2020+
+  Description: Simple Assault
+
+Code: 13C
+  Sources: 2020+
+  Description: Intimidation
+
+Code: 200
+  Sources: 2020+
+  Description: Arson
+
+Code: 2006
+  Sources: 2009-2020
+  Description: BURGLARY
+
+Code: 2099
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - AUTO THEFT
+    - LARCENY-NON VEHICLE
+
+Code: 210
+  Sources: 2020+
+  Description: Extortion/Blackmail
+
+Code: 220
+  Sources: 2009-2020, 2020+
+  Descriptions (2 variations):
+    - BURGLARY
+    - Burglary/Breaking & Entering
+
+Code: 2202
+  Sources: 2009-2020
+  Description: BURGLARY
+
+Code: 2202A
+  Sources: 2009-2020
+  Description: BURGLARY
+
+Code: 2203
+  Sources: 2009-2020
+  Description: BURGLARY
+
+Code: 2203A
+  Sources: 2009-2020
+  Description: BURGLARY
+
+Code: 2204
+  Sources: 2009-2020
+  Description: BURGLARY
+
+Code: 2205
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - BURGLARY
+    - LARCENY-NON VEHICLE
+
+Code: 2206
+  Sources: 2009-2020
+  Descriptions (3 variations):
+    - AUTO THEFT
+    - LARCENY-FROM VEHICLE
+    - LARCENY-NON VEHICLE
+
+Code: 2301
+  Sources: 2009-2020
+  Description: LARCENY-NON VEHICLE
+
+Code: 2302
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - LARCENY-NON VEHICLE
+    - ROBBERY
+
+Code: 2303
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - LARCENY-NON VEHICLE
+    - ROBBERY
+
+Code: 2304
+  Sources: 2009-2020
+  Description: LARCENY-FROM VEHICLE
+
+Code: 2305
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - AUTO THEFT
+    - LARCENY-FROM VEHICLE
+
+Code: 2307
+  Sources: 2009-2020
+  Description: LARCENY-NON VEHICLE
+
+Code: 2308
+  Sources: 2009-2020
+  Description: LARCENY-NON VEHICLE
+
+Code: 2310
+  Sources: 2009-2020
+  Description: LARCENY-NON VEHICLE
+
+Code: 2314
+  Sources: 2009-2020
+  Description: LARCENY-NON VEHICLE
+
+Code: 2316
+  Sources: 2009-2020
+  Description: LARCENY-NON VEHICLE
+
+Code: 2317
+  Sources: 2009-2020
+  Description: LARCENY-NON VEHICLE
+
+Code: 2318
+  Sources: 2009-2020
+  Description: LARCENY-NON VEHICLE
+
+Code: 2361
+  Sources: 2009-2020
+  Description: LARCENY-NON VEHICLE
+
+Code: 2373
+  Sources: 2009-2020
+  Description: LARCENY-NON VEHICLE
+
+Code: 2374
+  Sources: 2009-2020
+  Description: LARCENY-NON VEHICLE
+
+Code: 2382
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - AUTO THEFT
+    - LARCENY-NON VEHICLE
+
+Code: 2399
+  Sources: 2009-2020
+  Descriptions (3 variations):
+    - AUTO THEFT
+    - LARCENY-FROM VEHICLE
+    - LARCENY-NON VEHICLE
+
+Code: 23A
+  Sources: 2009-2020, 2020+
+  Descriptions (2 variations):
+    - LARCENY-NON VEHICLE
+    - Pocket-picking
+
+Code: 23B
+  Sources: 2009-2020, 2020+
+  Descriptions (2 variations):
+    - LARCENY-NON VEHICLE
+    - Purse-snatching
+
+Code: 23C
+  Sources: 2009-2020, 2020+
+  Descriptions (2 variations):
+    - LARCENY-NON VEHICLE
+    - Shoplifting
+
+Code: 23D
+  Sources: 2009-2020, 2020+
+  Descriptions (2 variations):
+    - LARCENY-NON VEHICLE
+    - Theft From Building
+
+Code: 23E
+  Sources: 2009-2020, 2020+
+  Descriptions (2 variations):
+    - LARCENY-NON VEHICLE
+    - Theft From Coin-Operated Machine or Device
+
+Code: 23F
+  Sources: 2009-2020, 2020+
+  Descriptions (2 variations):
+    - LARCENY-FROM VEHICLE
+    - Theft From Motor Vehicle
+
+Code: 23G
+  Sources: 2009-2020, 2020+
+  Descriptions (2 variations):
+    - LARCENY-FROM VEHICLE
+    - Theft of Motor Vehicle Parts or Accessories
+
+Code: 23H
+  Sources: 2009-2020, 2020+
+  Descriptions (2 variations):
+    - All Other Larceny
+    - LARCENY-NON VEHICLE
+
+Code: 240
+  Sources: 2009-2020, 2020+
+  Descriptions (2 variations):
+    - AUTO THEFT
+    - Motor Vehicle Theft
+
+Code: 2404
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - AUTO THEFT
+    - ROBBERY
+
+Code: 2404A
+  Sources: 2009-2020
+  Description: AUTO THEFT
+
+Code: 2424
+  Sources: 2009-2020
+  Description: AUTO THEFT
+
+Code: 2424A
+  Sources: 2009-2020
+  Description: AUTO THEFT
+
+Code: 2434
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - AUTO THEFT
+    - LARCENY-FROM VEHICLE
+
+Code: 2434A
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - AGG ASSAULT
+    - AUTO THEFT
+
+Code: 250
+  Sources: 2020+
+  Description: Counterfeiting/Forgery
+
+Code: 2599
+  Sources: 2009-2020
+  Description: ROBBERY
+
+Code: 26A
+  Sources: 2020+
+  Description: False Pretenses/Swindle/Confidence Game
+
+Code: 26B
+  Sources: 2020+
+  Description: Credit Card/Automated Teller Machine Fraud
+
+Code: 26C
+  Sources: 2020+
+  Description: Impersonation
+
+Code: 26D
+  Sources: 2020+
+  Description: Welfare Fraud
+
+Code: 26E
+  Sources: 2020+
+  Description: Wire Fraud
+
+Code: 26F
+  Sources: 2020+
+  Description: Identity Theft
+
+Code: 26G
+  Sources: 2020+
+  Description: Hacking/Computer Invasion
+
+Code: 270
+  Sources: 2020+
+  Description: Embezzelment
+
+Code: 280
+  Sources: 2020+
+  Description: Stolen Property Offenses
+
+Code: 2803
+  Sources: 2009-2020
+  Description: LARCENY-FROM VEHICLE
+
+Code: 2804
+  Sources: 2009-2020
+  Description: LARCENY-FROM VEHICLE
+
+Code: 2899
+  Sources: 2009-2020
+  Descriptions (3 variations):
+    - AUTO THEFT
+    - LARCENY-FROM VEHICLE
+    - LARCENY-NON VEHICLE
+
+Code: 290
+  Sources: 2020+
+  Description: Destruction/Damage/Vandalism of Property
+
+Code: 2902
+  Sources: 2009-2020
+  Descriptions (6 variations):
+    - AGG ASSAULT
+    - AUTO THEFT
+    - BURGLARY
+    - HOMICIDE
+    - LARCENY-FROM VEHICLE
+    - LARCENY-NON VEHICLE
+
+Code: 3562
+  Sources: 2009-2020
+  Description: AGG ASSAULT
+
+Code: 35A
+  Sources: 2020+
+  Description: Drug/Narcotic Violations
+
+Code: 35B
+  Sources: 2020+
+  Description: Drug Equipment Violations
+
+Code: 36A
+  Sources: 2020+
+  Description: Incest
+
+Code: 36B
+  Sources: 2020+
+  Description: Statutory Rape
+
+Code: 370
+  Sources: 2020+
+  Description: Pornography/Obscene Material
+
+Code: 39B
+  Sources: 2020+
+  Description: Operating/Promoting/Assisting Gambling
+
+Code: 39C
+  Sources: 2020+
+  Description: Gambling Equipment Violations
+
+Code: 40A
+  Sources: 2020+
+  Description: Prostitution
+
+Code: 40B
+  Sources: 2020+
+  Description: Assisting or Promoting Prostitution
+
+Code: 510
+  Sources: 2020+
+  Description: Bribery
+
+Code: 520
+  Sources: 2020+
+  Description: Weapon Law Violations
+
+Code: 5299
+  Sources: 2009-2020
+  Description: AGG ASSAULT
+
+Code: 5311
+  Sources: 2009-2020
+  Description: AGG ASSAULT
+
+Code: 5707
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - AUTO THEFT
+    - BURGLARY
+
+Code: 64A
+  Sources: 2020+
+  Description: Human Trafficking, Commercial Sex Acts
+
+Code: 64B
+  Sources: 2020+
+  Description: Human Trafficking, Involuntary Servitude
+
+Code: 720
+  Sources: 2020+
+  Description: Animal Cruelty
+
+Code: 7399
+  Sources: 2009-2020
+  Descriptions (2 variations):
+    - AUTO THEFT
+    - ROBBERY
+
+Code: 8
+  Sources: 2009-2020
+  Description: HOMICIDE
+
+Code: 901
+  Sources: 2009-2020
+  Description: HOMICIDE
+
+Code: 902
+  Sources: 2009-2020
+  Description: HOMICIDE
+
+Code: 903
+  Sources: 2009-2020
+  Description: HOMICIDE
+
+Code: 904
+  Sources: 2009-2020
+  Description: HOMICIDE
+
+Code: 90A
+  Sources: 2020+
+  Description: Bad Checks
+
+Code: 90B
+  Sources: 2020+
+  Description: Curfew/Loitering/Vagrancy Violations
+
+Code: 90C
+  Sources: 2020+
+  Description: Disorderly Conduct
+
+Code: 90D
+  Sources: 2020+
+  Description: Driving Under the Influence
+
+Code: 90E
+  Sources: 2020+
+  Description: Drunkenness
+
+Code: 90F
+  Sources: 2020+
+  Description: Family Offenses, Nonviolent
+
+Code: 90G
+  Sources: 2020+
+  Description: Liquor Law Violations
+
+Code: 90H
+  Sources: 2020+
+  Description: Peeping Tom
+
+Code: 90J
+  Sources: 2020+
+  Description: Trespass of Real Property
+
+Code: 90Z
+  Sources: 2020+
+  Description: All Other Offenses
+
+Code: 911
+  Sources: 2009-2020
+  Description: HOMICIDE
+
+Code: 912
+  Sources: 2009-2020
+  Description: HOMICIDE
+
+Code: 9920
+  Sources: 2009-2020
+  Description: LARCENY-FROM VEHICLE
+
+Code: 999
+  Sources: 2009-2020
+  Description: HOMICIDE
+
+Code: 9999
+  Sources: 2009-2020
+  Descriptions (5 variations):
+    - AGG ASSAULT
+    - AUTO THEFT
+    - BURGLARY
+    - LARCENY-FROM VEHICLE
+    - LARCENY-NON VEHICLE

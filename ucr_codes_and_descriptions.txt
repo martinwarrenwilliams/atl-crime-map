@@ -1,0 +1,416 @@
+ATLANTA CRIME DATA (1997-2008) - UCR CODES AND DESCRIPTIONS
+================================================================================
+
+UCR Code: 110
+----------------------------------------
+  Descriptions (13 variations):
+     1. HOMICIDE OFNS-FREE TEXT
+     2. NEGL MANSLAUG-GUN/OTH WEP
+     3. WILFUL KIL-NONFAM-OTH WEP
+     4. WILFUL KIL-POL OFFCR-GUN
+     5. WILFUL KIL-PUP OFFCR-GUN
+     6. WILFUL KILING-FAM-OTH WEP
+     7. WILFUL KILLING
+     8. WILFUL KILLING-GUN
+     9. WILFUL KILLING-OTH WEP
+    10. WILLFUL KILLING-FAMILY-GUN
+    11. WILLFUL KILLING-NONFAMILY-GUN
+    12. Willful killing-Gun
+    13. wilful killing-oth wep
+
+UCR Code: 120
+----------------------------------------
+  Description: NEGL MANSLAUG-GUN/OTH WEP
+
+UCR Code: 210
+----------------------------------------
+  Descriptions (3 variations):
+     1. RAPE-GUN
+     2. RAPE-OTHER WEAPON
+     3. RAPE-STRONGARM
+
+UCR Code: 220
+----------------------------------------
+  Descriptions (5 variations):
+     1. ATTEMPT RAPE-GUN
+     2. ATTEMPT RAPE-OTHER WEAPON
+     3. ATTEMPT RAPE-STRONGARM
+     4. RAPE-GUN
+     5. RAPE-STRONGARM
+
+UCR Code: 311
+----------------------------------------
+  Descriptions (3 variations):
+     1. BURGLARY-FORCED ENTRY-RESIDENC
+     2. ROB-STREET-GUN
+     3. ROBBERY-CONVENIENCE STORE-GUN
+
+UCR Code: 312
+----------------------------------------
+  Descriptions (4 variations):
+     1. LARCENY-FROM BUILDING
+     2. ROB-STREET-GUN
+     3. ROBBERY-BUSINESS-GUN
+     4. ROBBERY-GAS STATION-GUN
+
+UCR Code: 313
+----------------------------------------
+  Description: ROBBERY-GAS STATION-GUN
+
+UCR Code: 314
+----------------------------------------
+  Descriptions (2 variations):
+     1. ROB-STREET-STRONGARM
+     2. ROBBERY-CONVENIENCE STORE-GUN
+
+UCR Code: 315
+----------------------------------------
+  Descriptions (3 variations):
+     1. ROB-BUSINESS-STRONGARM
+     2. ROB-RESIDENCE-GUN
+     3. ROB-STREET-OTHER WEAPON
+
+UCR Code: 316
+----------------------------------------
+  Descriptions (3 variations):
+     1. ROB-BANK-GUN
+     2. ROB-BANK/FINCL INSTITUTIO
+     3. ROB-STREET-GUN
+
+UCR Code: 317
+----------------------------------------
+  Descriptions (3 variations):
+     1. ROB-BANK-GUN
+     2. ROB-MISC-GUN
+     3. ROB-OTHER-FREE TEXT
+
+UCR Code: 321
+----------------------------------------
+  Descriptions (3 variations):
+     1. BURG-NO FORCD ENTRY-RESID
+     2. ROB-STREET-KNIFE
+     3. ROB-STREET-OTHER WEAPON
+
+UCR Code: 322
+----------------------------------------
+  Descriptions (2 variations):
+     1. NON-CRIMINAL REPORT
+     2. ROB-BUSINESS-KNIFE
+
+UCR Code: 323
+----------------------------------------
+  Description: ROBBERY-GAS STATION-KNIFE
+
+UCR Code: 324
+----------------------------------------
+  Descriptions (3 variations):
+     1. NON-CRIMINAL REPORT
+     2. ROBBERY-CONVEN STORE-KNIFE
+     3. SIMPLE ASLT/BATTERY
+
+UCR Code: 325
+----------------------------------------
+  Description: ROB-RESIDENCE-KNIFE
+
+UCR Code: 326
+----------------------------------------
+  Description: ROB-BANK-KNIFE
+
+UCR Code: 327
+----------------------------------------
+  Description: ROB-MISC-KNIFE
+
+UCR Code: 331
+----------------------------------------
+  Descriptions (4 variations):
+     1. BURG-FORCD ENTRY-NONRESID
+     2. ROB-STREET-KNIFE
+     3. ROB-STREET-OTHER WEAPON
+     4. TERRORISTIC THREAT/INTIMI
+
+UCR Code: 332
+----------------------------------------
+  Descriptions (2 variations):
+     1. ROB-BUSINESS-OTH WEAPON
+     2. SHOPLIFTING
+
+UCR Code: 333
+----------------------------------------
+  Description: ROBBERY-GAS STATION-OTHER
+
+UCR Code: 334
+----------------------------------------
+  Description: ROBBERY-CONVEN STORE-OTHER
+
+UCR Code: 335
+----------------------------------------
+  Description: ROB-RESIDENCE-OTH WEAPON
+
+UCR Code: 336
+----------------------------------------
+  Descriptions (2 variations):
+     1. ROB-BANK-OTHER
+     2. ROB-BANK/FINCL INSTITUTIO
+
+UCR Code: 337
+----------------------------------------
+  Descriptions (2 variations):
+     1. ROB-MISC-OTHER-WEAPON
+     2. ROB-OTHER-FREE TEXT
+
+UCR Code: 341
+----------------------------------------
+  Descriptions (2 variations):
+     1. ROB-STREET-GUN
+     2. ROB-STREET-STRONGARM
+
+UCR Code: 342
+----------------------------------------
+  Descriptions (2 variations):
+     1. NON-CRIMINAL REPORT
+     2. ROB-BUSINESS-STRONGARM
+
+UCR Code: 343
+----------------------------------------
+  Descriptions (2 variations):
+     1. ROB-BUSINESS-STRONGARM
+     2. ROBBERY-GAS STATION-STRONGARM
+
+UCR Code: 344
+----------------------------------------
+  Descriptions (2 variations):
+     1. ROB-BUSINESS-STRONGARM
+     2. ROBBERY-CONVEN STORE-STRONGARM
+
+UCR Code: 345
+----------------------------------------
+  Descriptions (3 variations):
+     1. LARCENY-FROM BUILDING
+     2. ROB-OTHER-FREE TEXT
+     3. ROB-RESIDENCE-STRONGARM
+
+UCR Code: 346
+----------------------------------------
+  Descriptions (2 variations):
+     1. ROB-BANK-STRONGARM
+     2. ROB-BANK/FINCL INSTITUTIO
+
+UCR Code: 347
+----------------------------------------
+  Descriptions (6 variations):
+     1. ROB-BANK/FINCL INSTITUTIO
+     2. ROB-FORCIBLE PURSE SNATCH
+     3. ROB-MISC-GUN
+     4. ROB-MISC-STRONGARM
+     5. ROB-OTHER-FREE TEXT
+     6. ROBBERY-BUSINESS-GUN
+
+UCR Code: 410
+----------------------------------------
+  Descriptions (6 variations):
+     1. AGGR ASLT/BATTERY-GUN
+     2. AGGR ASLT/BATTERY-KNIFE
+     3. AGGR ASLT/BATTERY-OTH WEP
+     4. CRIMINAL TRESPASS
+     5. SIMPLE ASLT/BATTERY
+     6. TERRORISTIC THREAT/INTIMI
+
+UCR Code: 420
+----------------------------------------
+  Descriptions (4 variations):
+     1. AGGR ASLT/BATTERY-KNIFE
+     2. AGGR ASLT/BATTERY-OTH WEP
+     3. DUI OF ALCOHOL
+     4. SIMPLE ASLT/BATTERY
+
+UCR Code: 430
+----------------------------------------
+  Descriptions (5 variations):
+     1. AGGR ASLT/BATTERY-GUN
+     2. AGGR ASLT/BATTERY-KNIFE
+     3. AGGR ASLT/BATTERY-OTH WEP
+     4. SHOPLIFTING
+     5. SIMPLE ASLT/BATTERY
+
+UCR Code: 440
+----------------------------------------
+  Descriptions (4 variations):
+     1. AGGR ASLT/BATTERY-GUN
+     2. AGGR ASLT/BATTERY-OTH WEP
+     3. OTH ASLT/BATT OFNS-FR TXT
+     4. VAGRANCY FREE TEXT
+
+UCR Code: 511
+----------------------------------------
+  Descriptions (8 variations):
+     1. AGGR ASLT/BATTERY-GUN
+     2. ATTEMPT BURG-FORCED ENTRY-RES
+     3. BURG-FORCD ENTRY-NONRESID
+     4. BURG-NO FORCD ENT-NONRESI
+     5. BURG-NO FORCD ENTRY-RESID
+     6. BURGLARY-FORCED ENTRY-RESIDENC
+     7. ROB-STREET-GUN
+     8. SHOPLIFTING
+
+UCR Code: 512
+----------------------------------------
+  Descriptions (5 variations):
+     1. ATTEMPT BURG-FORC ENTRY-NONRES
+     2. BURG-FORCD ENTRY-NONRESID
+     3. BURGLARY-FORCED ENTRY-RESIDENC
+     4. NON-CRIMINAL REPORT
+     5. SHOPLIFTING
+
+UCR Code: 521
+----------------------------------------
+  Descriptions (3 variations):
+     1. AUTOTHEFT
+     2. BURG-NO FORCD ENTRY-RESID
+     3. BURGLARY-FORCED ENTRY-RESIDENC
+
+UCR Code: 522
+----------------------------------------
+  Descriptions (2 variations):
+     1. BURG-NO FORCD ENT-NONRESI
+     2. BURGLARY-FORCED ENTRY-RESIDENC
+
+UCR Code: 531
+----------------------------------------
+  Descriptions (5 variations):
+     1. ATTEMPT BURG-FORC ENTRY-NONRES
+     2. ATTEMPT BURG-FORCED ENTRY-RES
+     3. BURGLARY-FORCED ENTRY-RESIDENC
+     4. DISORD CONDUCT
+     5. OTH ASLT/BATT OFNS-FR TXT
+
+UCR Code: 532
+----------------------------------------
+  Descriptions (2 variations):
+     1. ATTEMPT BURG-FORC ENTRY-NONRES
+     2. BURG-FORCD ENTRY-NONRESID
+
+UCR Code: 610
+----------------------------------------
+  Descriptions (5 variations):
+     1. FORGERY OF CHECK
+     2. LAR-PARTS FROM VEHICLE
+     3. LAR-POCKET PICKING
+     4. LARCENY-FROM BUILDING
+     5. LARCENY-FROM MAIL
+
+UCR Code: 620
+----------------------------------------
+  Descriptions (3 variations):
+     1. LAR-SUDDEN SNATCH
+     2. LARCENY-FROM BUILDING
+     3. SHOPLIFTING
+
+UCR Code: 630
+----------------------------------------
+  Descriptions (9 variations):
+     1. ATTEMPT BURG-FORC ENTRY-NONRES
+     2. BURGLARY-FORCED ENTRY-RESIDENC
+     3. LAR-ARTICLES FROM VEHICLE
+     4. LAR-PARTS FROM VEHICLE
+     5. LAR-SUDDEN SNATCH
+     6. LARCENY-FROM BUILDING
+     7. LARCENY-FROM COIN MACHINE
+     8. NON-CRIMINAL REPORT
+     9. SHOPLIFTING
+
+UCR Code: 640
+----------------------------------------
+  Descriptions (7 variations):
+     1. BURG-NO FORCD ENT-NONRESI
+     2. LAR-ARTICLES FROM VEHICLE
+     3. LAR-OTHR-FREE TEXT
+     4. LAR-PARTS FROM VEHICLE
+     5. LARCENY-FROM BUILDING
+     6. SHOPLIFTING
+     7. SIMPLE ASLT/BATTERY
+
+UCR Code: 650
+----------------------------------------
+  Descriptions (6 variations):
+     1. AUTOTHEFT
+     2. LAR-ARTICLES FROM VEHICLE
+     3. LAR-PARTS FROM VEHICLE
+     4. LAR-POCKET PICKING
+     5. LARCENY-GAS DRIVE OFF
+     6. NON-CRIMINAL REPORT
+
+UCR Code: 660
+----------------------------------------
+  Descriptions (4 variations):
+     1. LAR-ARTICLES FROM VEHICLE
+     2. LAR-BICYCLE
+     3. LARCENY-GAS DRIVE OFF
+     4. NON-CRIMINAL REPORT
+
+UCR Code: 670
+----------------------------------------
+  Descriptions (6 variations):
+     1. LAR-ARTICLES FROM VEHICLE
+     2. LAR-OTHR-FREE TEXT
+     3. LAR-PARTS FROM VEHICLE
+     4. LARCENY-FROM BUILDING
+     5. LARCENY-FROM COIN MACHINE
+     6. SHOPLIFTING
+
+UCR Code: 680
+----------------------------------------
+  Descriptions (5 variations):
+     1. FORGERY OF CHECK
+     2. LAR-PARTS FROM VEHICLE
+     3. LAR-SUDDEN SNATCH
+     4. LARCENY-FROM BUILDING
+     5. LARCENY-FROM COIN MACHINE
+
+UCR Code: 690
+----------------------------------------
+  Descriptions (12 variations):
+     1. COUNTERFEITING-FREE TEXT
+     2. LAR-BICYCLE
+     3. LAR-FROM RESID. MAILBOX
+     4. LAR-LIVESTOCK
+     5. LAR-OF GOVERNMANT PROPRTY
+     6. LAR-OTHR-FREE TEXT
+     7. LARCENY-FROM BUILDING
+     8. LARCENY-FROM MAIL
+     9. LARCENY-GAS DRIVE OFF
+    10. MISC OFFENSE
+    11. OTHR FRAUDUL ACTIVITY-FT
+    12. THEFT OF AIRCRAFT
+
+UCR Code: 710
+----------------------------------------
+  Descriptions (10 variations):
+     1. AGGR ASLT/BATTERY-OTH WEP
+     2. ATTEMPTED AUTO THEFT
+     3. ATTEMPTED THEFT TRUCK/VAN/BUS
+     4. AUTOTHEFT
+     5. DRIVING WITHOUT CONSENT
+     6. LAR-PARTS FROM VEHICLE
+     7. MISC OFFENSE
+     8. NON-CRIMINAL REPORT
+     9. POSSESSION OF STLN PROP
+    10. THEFT OF TRUCK/VAN/BUS
+
+UCR Code: 720
+----------------------------------------
+  Descriptions (7 variations):
+     1. ATTEMPTED AUTO THEFT
+     2. ATTEMPTED THEFT OTHER VEHICLE
+     3. ATTEMPTED THEFT TRUCK/VAN/BUS
+     4. AUTOTHEFT
+     5. DISORD CONDUCT
+     6. THEFT OF OTHER VEHICLE
+     7. THEFT OF TRUCK/VAN/BUS
+
+UCR Code: 730
+----------------------------------------
+  Descriptions (3 variations):
+     1. ATTEMPTED THEFT OTHER VEHICLE
+     2. THEFT OF OTHER VEHICLE
+     3. THEFT OF TRUCK/VAN/BUS
+
