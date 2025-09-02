@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(d:\\local-repo\\atl-crime-map\\raw-data/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
