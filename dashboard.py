@@ -5,6 +5,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
+import os
 from datetime import datetime, timedelta
 from data_loader import CrimeDataLoader
 
@@ -45,7 +46,25 @@ app.layout = html.Div([
     
     html.Div([
         html.Div([
-            dcc.Graph(id='crime-type-chart')
+            dcc.Graph(id='crime-type-chart'),
+            html.Div(id='crime-severity-box', style={
+                'backgroundColor': '#f8f9fa',
+                'borderRadius': '8px',
+                'padding': '10px',
+                'marginTop': '10px',
+                'textAlign': 'center',
+                'border': '1px solid #dee2e6'
+            })
+        ], style={'width': '48%', 'display': 'inline-block', 'padding': '10px'}),
+        
+        html.Div([
+            dcc.Graph(id='crime-severity-grouped-chart')
+        ], style={'width': '48%', 'display': 'inline-block', 'padding': '10px'})
+    ]),
+    
+    html.Div([
+        html.Div([
+            dcc.Graph(id='time-series-chart')
         ], style={'width': '48%', 'display': 'inline-block', 'padding': '10px'}),
         
         html.Div([
@@ -63,12 +82,6 @@ app.layout = html.Div([
     
     html.Div([
         html.Div([
-            dcc.Graph(id='time-series-chart')
-        ], style={'padding': '10px'})
-    ]),
-    
-    html.Div([
-        html.Div([
             html.H4("Crime Details", style={'color': '#2c3e50', 'padding': '10px'}),
             html.Div(id='crime-table-container', style={'paddingBottom': '50px'})
         ], style={'padding': '10px', 'backgroundColor': 'white', 
@@ -79,9 +92,11 @@ app.layout = html.Div([
 @app.callback(
     [Output('overview-stats', 'children'),
      Output('crime-type-chart', 'figure'),
+     Output('crime-severity-box', 'children'),
+     Output('crime-severity-grouped-chart', 'figure'),
+     Output('time-series-chart', 'figure'),
      Output('time-of-day-chart', 'figure'),
      Output('time-stats-box', 'children'),
-     Output('time-series-chart', 'figure'),
      Output('crime-table-container', 'children')],
     [Input('date-range-picker', 'start_date'),
      Input('date-range-picker', 'end_date')]
@@ -107,7 +122,7 @@ def update_dashboard(start_date, end_date):
             html.P(f"Total Crimes: 0", style={'fontSize': '18px', 'fontWeight': 'bold'})
         ])
         
-        return overview, empty_fig, empty_fig, html.Div("No data available"), empty_fig, html.Div("No crimes found for this period")
+        return overview, empty_fig, html.Div("No data available"), empty_fig, empty_fig, empty_fig, html.Div("No data available"), html.Div("No crimes found for this period")
     
     overview = html.Div([
         html.Div([
@@ -140,6 +155,110 @@ def update_dashboard(start_date, end_date):
     )
     crime_type_fig.update_layout(height=400, showlegend=False)
     
+    # Load severity crosswalk
+    crosswalk_path = os.path.join('data-processing', 'atl_ucr_nibrs_severity_crosswalk_full.csv')
+    if os.path.exists(crosswalk_path):
+        severity_crosswalk = pd.read_csv(crosswalk_path)
+        severity_dict = dict(zip(
+            severity_crosswalk['offense_description'], 
+            severity_crosswalk['severity']
+        ))
+    else:
+        severity_dict = {}
+    
+    # Create a copy to avoid SettingWithCopyWarning and calculate severity
+    filtered_df = filtered_df.copy()
+    
+    # Apply severity classification
+    filtered_df['severity'] = filtered_df['NIBRS_Offense'].map(severity_dict)
+    filtered_df['severity'] = filtered_df['severity'].fillna('Low')
+    
+    # Remove any 'Exclude' severity entries
+    filtered_df_for_severity = filtered_df[filtered_df['severity'] != 'Exclude']
+    
+    # Calculate severity percentages
+    severity_counts = filtered_df_for_severity['severity'].value_counts()
+    total_crimes_with_severity = severity_counts.sum()
+    
+    if total_crimes_with_severity > 0:
+        high_percent = round((severity_counts.get('High', 0) / total_crimes_with_severity * 100), 1)
+        medium_percent = round((severity_counts.get('Medium', 0) / total_crimes_with_severity * 100), 1)
+        low_percent = round((severity_counts.get('Low', 0) / total_crimes_with_severity * 100), 1)
+    else:
+        high_percent = medium_percent = low_percent = 0
+    
+    # Function to get red gradient color based on percentage
+    def get_red_gradient_color(percent):
+        # Map 0-100% to gradient from light to dark red
+        intensity = percent / 100
+        # Using RGB interpolation for smooth gradient
+        r = 254 - int(intensity * 115)  # 254 to 139
+        g = 229 - int(intensity * 229)  # 229 to 0
+        b = 229 - int(intensity * 229)  # 229 to 0
+        return f'rgb({r}, {g}, {b})'
+    
+    # Create severity stats box
+    severity_stats = html.Div([
+        html.Span([
+            html.B('High: ', style={'color': 'black'}),
+            html.Span(f'{high_percent}%', style={
+                'color': 'black',
+                'fontSize': '16px',
+                'fontWeight': 'bold'
+            })
+        ]),
+        html.Span(' | ', style={'margin': '0 5px', 'color': '#6c757d'}),
+        html.Span([
+            html.B('Med: ', style={'color': 'black'}),
+            html.Span(f'{medium_percent}%', style={
+                'color': 'black',
+                'fontSize': '16px',
+                'fontWeight': 'bold'
+            })
+        ]),
+        html.Span(' | ', style={'margin': '0 5px', 'color': '#6c757d'}),
+        html.Span([
+            html.B('Low: ', style={'color': 'black'}),
+            html.Span(f'{low_percent}%', style={
+                'color': 'black',
+                'fontSize': '16px',
+                'fontWeight': 'bold'
+            })
+        ])
+    ])
+    
+    # Create severity-grouped chart
+    # Group crimes by severity and crime type
+    severity_crime_counts = filtered_df_for_severity.groupby(['severity', 'NIBRS_Offense']).size().reset_index(name='count')
+    
+    # Sort by severity order (High, Medium, Low) and count
+    severity_order = ['High', 'Medium', 'Low']
+    severity_crime_counts['severity'] = pd.Categorical(severity_crime_counts['severity'], 
+                                                       categories=severity_order, 
+                                                       ordered=True)
+    severity_crime_counts = severity_crime_counts.sort_values(['severity', 'count'], ascending=[False, True])
+    
+    # Create the grouped bar chart
+    severity_grouped_fig = px.bar(
+        severity_crime_counts,
+        x='count',
+        y='NIBRS_Offense',
+        color='severity',
+        orientation='h',
+        title='Crimes by Severity Group',
+        labels={'count': 'Count', 'NIBRS_Offense': 'Crime Type', 'severity': 'Severity'},
+        color_discrete_map={'High': '#dc3545', 'Medium': '#fd7e14', 'Low': '#ffc107'},
+        category_orders={'severity': severity_order}
+    )
+    
+    # Update layout to show all crimes without bundling
+    severity_grouped_fig.update_layout(
+        height=600,  # Taller to show all crime types
+        showlegend=True,
+        legend=dict(title='Severity', orientation='v', x=1.02, y=1),
+        yaxis=dict(categoryorder='total ascending')  # Order by total count
+    )
+    
     filtered_df['hour'] = filtered_df['OccurredFromDate'].dt.hour
     hour_counts = filtered_df['hour'].value_counts().sort_index()
     
@@ -157,16 +276,6 @@ def update_dashboard(start_date, end_date):
     else:
         day_percent = 0
         night_percent = 0
-    
-    # Function to get red gradient color based on percentage
-    def get_red_gradient_color(percent):
-        # Map 0-100% to gradient from light to dark red
-        intensity = percent / 100
-        # Using RGB interpolation for smooth gradient
-        r = 254 - int(intensity * 115)  # 254 to 139
-        g = 229 - int(intensity * 229)  # 229 to 0
-        b = 229 - int(intensity * 229)  # 229 to 0
-        return f'rgb({r}, {g}, {b})'
     
     # Create dataframe for plotly express
     time_df = pd.DataFrame({
@@ -200,7 +309,7 @@ def update_dashboard(start_date, end_date):
     # Create the statistics box content
     time_stats = html.Div([
         html.Span([
-            html.B('Day (5am-5pm): ', style={'color': get_red_gradient_color(day_percent)}),
+            html.B('Day (5am-5pm): ', style={'color': 'black'}),
             html.Span(f'{day_percent}%', style={
                 'color': get_red_gradient_color(day_percent),
                 'fontSize': '18px',
@@ -209,7 +318,7 @@ def update_dashboard(start_date, end_date):
         ]),
         html.Span(' | ', style={'margin': '0 10px', 'color': '#6c757d'}),
         html.Span([
-            html.B('Night (5pm-5am): ', style={'color': get_red_gradient_color(night_percent)}),
+            html.B('Night (5pm-5am): ', style={'color': 'black'}),
             html.Span(f'{night_percent}%', style={
                 'color': get_red_gradient_color(night_percent),
                 'fontSize': '18px',
@@ -290,7 +399,7 @@ def update_dashboard(start_date, end_date):
         filter_action='native'
     )
     
-    return overview, crime_type_fig, time_of_day_fig, time_stats, time_series_fig, crime_table
+    return overview, crime_type_fig, severity_stats, severity_grouped_fig, time_series_fig, time_of_day_fig, time_stats, crime_table
 
 if __name__ == '__main__':
     print(f"Starting dashboard for {PRIMARY_ADDRESS}...")

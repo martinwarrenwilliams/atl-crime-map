@@ -5,7 +5,7 @@ import os
 class CrimeDataLoader:
     def __init__(self, data_path="raw-data"):
         self.data_path = data_path
-        self.latest_file = "AxonCrimeData_Export_view_-3489168499745344284.csv"
+        self.latest_file = "AxonCrimeData_Export_view_6594257177302908045.csv"
         self.df = None
         
     def load_latest_data(self):
@@ -45,7 +45,7 @@ class CrimeDataLoader:
         return summary
     
     def get_time_series_data(self, address, freq='M'):
-        filtered_df = self.filter_by_address(address)
+        filtered_df = self.filter_by_address(address).copy()
         
         if len(filtered_df) == 0:
             return pd.DataFrame()
@@ -57,7 +57,7 @@ class CrimeDataLoader:
         return time_series
     
     def get_quarterly_time_series_data(self, address):
-        filtered_df = self.filter_by_address(address)
+        filtered_df = self.filter_by_address(address).copy()
         
         if len(filtered_df) == 0:
             return pd.DataFrame()
