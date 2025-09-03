@@ -8,6 +8,7 @@ import pandas as pd
 import os
 from datetime import datetime, timedelta
 from data_loader import CrimeDataLoader
+from dateutil.relativedelta import relativedelta
 
 app = dash.Dash(__name__)
 
@@ -46,20 +47,64 @@ app.layout = html.Div([
     
     html.Div([
         html.Div([
-            dcc.Graph(id='crime-type-chart'),
-            html.Div(id='crime-severity-box', style={
-                'backgroundColor': '#f8f9fa',
-                'borderRadius': '8px',
-                'padding': '10px',
-                'marginTop': '10px',
-                'textAlign': 'center',
-                'border': '1px solid #dee2e6'
-            })
-        ], style={'width': '48%', 'display': 'inline-block', 'padding': '10px'}),
-        
-        html.Div([
             dcc.Graph(id='crime-severity-grouped-chart')
-        ], style={'width': '48%', 'display': 'inline-block', 'padding': '10px'})
+        ], style={'width': '100%', 'display': 'inline-block', 'padding': '10px'}),
+        html.Div([
+            html.H4("Severity Level Definitions", style={'color': '#2c3e50', 'margin': '10px 0'}),
+            html.Table([
+                html.Thead([
+                    html.Tr([
+                        html.Th('Severity', style={'textAlign': 'left'}),
+                        html.Th('Definition', style={'textAlign': 'left'}),
+                        html.Th('Example Crime Types', style={'textAlign': 'left'})
+                    ])
+                ]),
+                html.Tbody([
+                    html.Tr([
+                        html.Td('High Severity (Violent Crimes)', style={'verticalAlign': 'top', 'fontWeight': 'bold', 'color': '#dc3545'}),
+                        html.Td('Crimes involving violence or threat of violence against persons, causing or potentially causing serious physical harm or death.', style={'verticalAlign': 'top'}),
+                        html.Td(
+                            html.Ul([
+                                html.Li('Homicide'),
+                                html.Li('Rape / Sexual assault'),
+                                html.Li('Aggravated assault'),
+                                html.Li('Armed robbery (with weapon)')
+                            ]),
+                            style={'verticalAlign': 'top'}
+                        ),
+                    ]),
+                    html.Tr([
+                        html.Td('Medium Severity (Serious Property & Drug Crimes)', style={'verticalAlign': 'top', 'fontWeight': 'bold', 'color': '#fd7e14'}),
+                        html.Td('Crimes involving significant property loss/damage, breaking and entering, or serious drug offenses.', style={'verticalAlign': 'top'}),
+                        html.Td(
+                            html.Ul([
+                                html.Li('Burglary'),
+                                html.Li('Auto theft'),
+                                html.Li('Larceny-theft (large amounts)'),
+                                html.Li('Weapons charges'),
+                                html.Li('Drug trafficking')
+                            ]),
+                            style={'verticalAlign': 'top'}
+                        ),
+                    ]),
+                    html.Tr([
+                        html.Td('Low Severity (Minor Property & Nuisance Crimes)', style={'verticalAlign': 'top', 'fontWeight': 'bold', 'color': '#ffc107'}),
+                        html.Td('Minor offenses involving small property loss, public order violations, or non-violent disturbances.', style={'verticalAlign': 'top'}),
+                        html.Td(
+                            html.Ul([
+                                html.Li('Simple assault (no weapon, no serious injury)'),
+                                html.Li('Vandalism'),
+                                html.Li('Disorderly conduct'),
+                                html.Li('Trespassing'),
+                                html.Li('Public intoxication'),
+                                html.Li('Drug possession (personal use amounts)')
+                            ]),
+                            style={'verticalAlign': 'top'}
+                        ),
+                    ])
+                ])
+            ], style={'width': '100%', 'borderCollapse': 'collapse'}),
+        ], style={'padding': '10px', 'backgroundColor': 'white', 'borderRadius': '10px', 'margin': '0 10px 10px 10px', 'boxShadow': '0 2px 4px rgba(0,0,0,0.1)'}),
     ]),
     
     html.Div([
@@ -91,8 +136,6 @@ app.layout = html.Div([
 
 @app.callback(
     [Output('overview-stats', 'children'),
-     Output('crime-type-chart', 'figure'),
-     Output('crime-severity-box', 'children'),
      Output('crime-severity-grouped-chart', 'figure'),
      Output('time-series-chart', 'figure'),
      Output('time-of-day-chart', 'figure'),
@@ -122,70 +165,77 @@ def update_dashboard(start_date, end_date):
             html.P(f"Total Crimes: 0", style={'fontSize': '18px', 'fontWeight': 'bold'})
         ])
         
-        return overview, empty_fig, html.Div("No data available"), empty_fig, empty_fig, empty_fig, html.Div("No data available"), html.Div("No crimes found for this period")
+        return overview, empty_fig, empty_fig, empty_fig, html.Div("No data available"), html.Div("No crimes found for this period")
     
-    overview = html.Div([
-        html.Div([
-            html.Div([
-                html.H2(str(total_crimes), style={'margin': '0', 'color': '#e74c3c'}),
-                html.P("Total Crimes", style={'margin': '0'})
-            ], style={'textAlign': 'center', 'width': '33.33%', 'display': 'inline-block'}),
-            
-            html.Div([
-                html.H2(str(filtered_df['NIBRS_Offense'].nunique()), style={'margin': '0', 'color': '#3498db'}),
-                html.P("Crime Types", style={'margin': '0'})
-            ], style={'textAlign': 'center', 'width': '33.33%', 'display': 'inline-block'}),
-            
-            html.Div([
-                html.H2(str((filtered_df['FireArmInvolved'] == 'yes').sum()), style={'margin': '0', 'color': '#f39c12'}),
-                html.P("Firearm Involved", style={'margin': '0'})
-            ], style={'textAlign': 'center', 'width': '33.33%', 'display': 'inline-block'})
-        ])
-    ])
-    
-    crime_types = filtered_df['NIBRS_Offense'].value_counts().sort_values(ascending=True).tail(10)
-    crime_type_fig = px.bar(
-        x=crime_types.values,
-        y=crime_types.index,
-        orientation='h',
-        title=f"Top Crime Types at {PRIMARY_ADDRESS}",
-        labels={'x': 'Count', 'y': 'Crime Type'},
-        color=crime_types.values,
-        color_continuous_scale='Reds'
-    )
-    crime_type_fig.update_layout(height=400, showlegend=False)
-    
-    # Load severity crosswalk
+    # Map offenses to severity using crosswalk and create filtered_df_for_severity
     crosswalk_path = os.path.join('data-processing', 'atl_ucr_nibrs_severity_crosswalk_full.csv')
     if os.path.exists(crosswalk_path):
         severity_crosswalk = pd.read_csv(crosswalk_path)
         severity_dict = dict(zip(
-            severity_crosswalk['offense_description'], 
+            severity_crosswalk['offense_description'],
             severity_crosswalk['severity']
         ))
     else:
         severity_dict = {}
-    
-    # Create a copy to avoid SettingWithCopyWarning and calculate severity
     filtered_df = filtered_df.copy()
-    
-    # Apply severity classification
     filtered_df['severity'] = filtered_df['NIBRS_Offense'].map(severity_dict)
     filtered_df['severity'] = filtered_df['severity'].fillna('Low')
-    
-    # Remove any 'Exclude' severity entries
     filtered_df_for_severity = filtered_df[filtered_df['severity'] != 'Exclude']
-    
-    # Calculate severity percentages
-    severity_counts = filtered_df_for_severity['severity'].value_counts()
-    total_crimes_with_severity = severity_counts.sum()
-    
-    if total_crimes_with_severity > 0:
-        high_percent = round((severity_counts.get('High', 0) / total_crimes_with_severity * 100), 1)
-        medium_percent = round((severity_counts.get('Medium', 0) / total_crimes_with_severity * 100), 1)
-        low_percent = round((severity_counts.get('Low', 0) / total_crimes_with_severity * 100), 1)
+
+    # Compute dynamic overview metrics based on selected date range
+    start_dt = pd.to_datetime(start_date) if start_date else filtered_df['OccurredFromDate'].min()
+    end_dt = pd.to_datetime(end_date) if end_date else filtered_df['OccurredFromDate'].max()
+    # Duration in years and months
+    rd = relativedelta(end_dt, start_dt)
+    duration_str = f"{rd.years} years, {rd.months} months"
+    # Build full quarter range to include empty quarters for averaging
+    q_start = start_dt.to_period('Q')
+    q_end = end_dt.to_period('Q')
+    quarter_index = pd.period_range(start=q_start, end=q_end, freq='Q')
+
+    # Average crimes per quarter (all crimes) across full quarter range
+    all_quarter_df = filtered_df.copy()
+    all_quarter_df['quarter'] = all_quarter_df['OccurredFromDate'].dt.to_period('Q')
+    all_counts = all_quarter_df.groupby('quarter').size().reindex(quarter_index, fill_value=0)
+    avg_crimes_per_quarter = float(all_counts.mean()) if len(all_counts) > 0 else 0.0
+
+    # High severity metrics
+    high_df = filtered_df_for_severity[filtered_df_for_severity['severity'] == 'High'].copy()
+    total_high = int(high_df.shape[0])
+    if not high_df.empty:
+        high_df['quarter'] = high_df['OccurredFromDate'].dt.to_period('Q')
+        high_counts = high_df.groupby('quarter').size().reindex(quarter_index, fill_value=0)
     else:
-        high_percent = medium_percent = low_percent = 0
+        high_counts = pd.Series(0, index=quarter_index)
+    avg_high_per_quarter = float(high_counts.mean()) if len(high_counts) > 0 else 0.0
+
+    # Build overview UI
+    overview = html.Div([
+        html.Div([
+            html.Div([
+                html.H3(duration_str, style={'margin': '0', 'color': '#2c3e50'}),
+                html.P("Duration", style={'margin': '0', 'color': '#6c757d'})
+            ], style={'textAlign': 'center', 'width': '20%', 'display': 'inline-block'}),
+            html.Div([
+                html.H3(f"{total_crimes:,}", style={'margin': '0', 'color': '#e74c3c'}),
+                html.P("Total Crimes", style={'margin': '0', 'color': '#6c757d'})
+            ], style={'textAlign': 'center', 'width': '20%', 'display': 'inline-block'}),
+            html.Div([
+                html.H3(f"{total_high:,}", style={'margin': '0', 'color': '#dc3545'}),
+                html.P("High Severity Crimes", style={'margin': '0', 'color': '#6c757d'})
+            ], style={'textAlign': 'center', 'width': '20%', 'display': 'inline-block'}),
+            html.Div([
+                html.H3(f"{avg_high_per_quarter:.1f}", style={'margin': '0', 'color': '#fd7e14'}),
+                html.P("Avg High Severity Crimes per Quarter", style={'margin': '0', 'color': '#6c757d'})
+            ], style={'textAlign': 'center', 'width': '20%', 'display': 'inline-block'}),
+            html.Div([
+                html.H3(f"{avg_crimes_per_quarter:.1f}", style={'margin': '0', 'color': '#3498db'}),
+                html.P("Avg Crimes per Quarter", style={'margin': '0', 'color': '#6c757d'})
+            ], style={'textAlign': 'center', 'width': '20%', 'display': 'inline-block'})
+        ])
+    ])
+    
+    # Removed "Top Crime Types" chart
     
     # Function to get red gradient color based on percentage
     def get_red_gradient_color(percent):
@@ -197,50 +247,27 @@ def update_dashboard(start_date, end_date):
         b = 229 - int(intensity * 229)  # 229 to 0
         return f'rgb({r}, {g}, {b})'
     
-    # Create severity stats box
-    severity_stats = html.Div([
-        html.Span([
-            html.B('High: ', style={'color': 'black'}),
-            html.Span(f'{high_percent}%', style={
-                'color': 'black',
-                'fontSize': '16px',
-                'fontWeight': 'bold'
-            })
-        ]),
-        html.Span(' | ', style={'margin': '0 5px', 'color': '#6c757d'}),
-        html.Span([
-            html.B('Med: ', style={'color': 'black'}),
-            html.Span(f'{medium_percent}%', style={
-                'color': 'black',
-                'fontSize': '16px',
-                'fontWeight': 'bold'
-            })
-        ]),
-        html.Span(' | ', style={'margin': '0 5px', 'color': '#6c757d'}),
-        html.Span([
-            html.B('Low: ', style={'color': 'black'}),
-            html.Span(f'{low_percent}%', style={
-                'color': 'black',
-                'fontSize': '16px',
-                'fontWeight': 'bold'
-            })
-        ])
-    ])
-    
-    # Create severity-grouped chart
-    # Group crimes by severity and crime type
-    severity_crime_counts = filtered_df_for_severity.groupby(['severity', 'NIBRS_Offense']).size().reset_index(name='count')
-    
-    # Sort by severity order (High, Medium, Low) and count
+    # Create severity-grouped chart listing all offenses, grouped by severity
     severity_order = ['High', 'Medium', 'Low']
-    severity_crime_counts['severity'] = pd.Categorical(severity_crime_counts['severity'], 
-                                                       categories=severity_order, 
-                                                       ordered=True)
-    severity_crime_counts = severity_crime_counts.sort_values(['severity', 'count'], ascending=[False, True])
-    
-    # Create the grouped bar chart
+    offense_counts_df = (
+        filtered_df_for_severity
+        .groupby(['severity', 'NIBRS_Offense'])
+        .size()
+        .reset_index(name='count')
+    )
+    offense_counts_df['severity'] = pd.Categorical(
+        offense_counts_df['severity'], categories=severity_order, ordered=True
+    )
+
+    # Build y-axis order: High offenses (desc), then Medium (desc), then Low (desc)
+    y_order = []
+    for s in severity_order:
+        subset = offense_counts_df[offense_counts_df['severity'] == s]
+        subset = subset.sort_values('count', ascending=False)
+        y_order.extend(subset['NIBRS_Offense'].tolist())
+
     severity_grouped_fig = px.bar(
-        severity_crime_counts,
+        offense_counts_df,
         x='count',
         y='NIBRS_Offense',
         color='severity',
@@ -250,13 +277,11 @@ def update_dashboard(start_date, end_date):
         color_discrete_map={'High': '#dc3545', 'Medium': '#fd7e14', 'Low': '#ffc107'},
         category_orders={'severity': severity_order}
     )
-    
-    # Update layout to show all crimes without bundling
     severity_grouped_fig.update_layout(
-        height=600,  # Taller to show all crime types
+        height=600,
         showlegend=True,
         legend=dict(title='Severity', orientation='v', x=1.02, y=1),
-        yaxis=dict(categoryorder='total ascending')  # Order by total count
+        yaxis=dict(categoryorder='array', categoryarray=y_order, autorange='reversed')
     )
     
     filtered_df['hour'] = filtered_df['OccurredFromDate'].dt.hour
@@ -399,7 +424,7 @@ def update_dashboard(start_date, end_date):
         filter_action='native'
     )
     
-    return overview, crime_type_fig, severity_stats, severity_grouped_fig, time_series_fig, time_of_day_fig, time_stats, crime_table
+    return overview, severity_grouped_fig, time_series_fig, time_of_day_fig, time_stats, crime_table
 
 if __name__ == '__main__':
     print(f"Starting dashboard for {PRIMARY_ADDRESS}...")
