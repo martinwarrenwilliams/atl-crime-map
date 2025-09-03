@@ -174,7 +174,7 @@ def update_dashboard(start_date, end_date):
         return overview, empty_fig, empty_fig, empty_fig, html.Div("No data available"), html.Div("No crimes found for this period")
     
     # Map offenses to severity using crosswalk and create filtered_df_for_severity
-    crosswalk_path = os.path.join('data-processing', 'atl_ucr_nibrs_severity_crosswalk_full.csv')
+    crosswalk_path = str(config.SEVERITY_CROSSWALK_PATH)
     if os.path.exists(crosswalk_path):
         severity_crosswalk = pd.read_csv(crosswalk_path)
         severity_dict = dict(zip(

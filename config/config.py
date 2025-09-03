@@ -23,6 +23,10 @@ HISTORICAL_FILES = {
     "2021-2025": LATEST_DATA_FILE
 }
 
+# Severity crosswalk file
+SEVERITY_CROSSWALK_FILE = "atl_ucr_nibrs_severity_crosswalk_full.csv"
+SEVERITY_CROSSWALK_PATH = PROCESSED_DATA_DIR / SEVERITY_CROSSWALK_FILE
+
 # Dashboard configuration
 PRIMARY_ADDRESS = "234 MEMORIAL DR SW"
 DEFAULT_DATE_RANGE = {
