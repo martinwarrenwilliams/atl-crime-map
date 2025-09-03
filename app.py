@@ -26,23 +26,48 @@ PRIMARY_ADDRESS = config.PRIMARY_ADDRESS
 st.title("Atlanta Crime Statistics Dashboard")
 st.subheader(f"Address: {PRIMARY_ADDRESS}")
 
-# Date range filter
+# Get the full data to determine min/max dates
+full_df = loader.filter_by_address(PRIMARY_ADDRESS)
+min_date = full_df['OccurredFromDate'].min() if len(full_df) > 0 else datetime(2021, 1, 1)
+max_date = full_df['OccurredFromDate'].max() if len(full_df) > 0 else datetime.now()
+
+# Initialize session state for dates if not exists
+if 'start_date' not in st.session_state:
+    st.session_state.start_date = min_date.date() if pd.notna(min_date) else datetime(2021, 1, 1).date()
+if 'end_date' not in st.session_state:
+    st.session_state.end_date = max_date.date() if pd.notna(max_date) else datetime.now().date()
+
+# Date range filter with reset button
 col1, col2, col3 = st.columns([1, 1, 2])
 with col1:
     start_date = st.date_input(
         "Start Date",
-        value=datetime(2021, 1, 1),
-        max_value=datetime.now()
+        value=st.session_state.start_date,
+        min_value=min_date.date() if pd.notna(min_date) else datetime(2020, 1, 1).date(),
+        max_value=datetime.now().date(),
+        key='start_date_input'
     )
 with col2:
     end_date = st.date_input(
         "End Date",
-        value=datetime.now(),
-        max_value=datetime.now()
+        value=st.session_state.end_date,
+        min_value=min_date.date() if pd.notna(min_date) else datetime(2020, 1, 1).date(),
+        max_value=datetime.now().date(),
+        key='end_date_input'
     )
+with col3:
+    st.write("")  # Empty space for alignment
+    if st.button("Reset Dates", type="secondary"):
+        st.session_state.start_date = min_date.date() if pd.notna(min_date) else datetime(2021, 1, 1).date()
+        st.session_state.end_date = max_date.date() if pd.notna(max_date) else datetime.now().date()
+        st.rerun()
+
+# Update session state
+st.session_state.start_date = start_date
+st.session_state.end_date = end_date
 
 # Filter data
-filtered_df = loader.filter_by_address(PRIMARY_ADDRESS)
+filtered_df = full_df.copy()
 
 if start_date and end_date:
     mask = (filtered_df['OccurredFromDate'] >= pd.to_datetime(start_date)) & \
