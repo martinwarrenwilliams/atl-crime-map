@@ -181,7 +181,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.markdown("### Crime Trends Over Time (Quarterly)")
-    time_data = loader.get_quarterly_time_series_data(PRIMARY_ADDRESS)
+    time_data = loader.get_quarterly_time_series_data(PRIMARY_ADDRESS, start_date, end_date)
     if len(time_data) > 0:
         time_series_fig = go.Figure()
         time_series_fig.add_trace(go.Scatter(

@@ -58,8 +58,19 @@ class CrimeDataLoader:
         
         return time_series
     
-    def get_quarterly_time_series_data(self, address):
+    def get_quarterly_time_series_data(self, address, start_date=None, end_date=None):
         filtered_df = self.filter_by_address(address).copy()
+        
+        if len(filtered_df) == 0:
+            return pd.DataFrame()
+        
+        # Apply date filtering if dates are provided
+        if start_date is not None and end_date is not None:
+            start_date = pd.to_datetime(start_date)
+            end_date = pd.to_datetime(end_date)
+            mask = (filtered_df['OccurredFromDate'] >= start_date) & \
+                   (filtered_df['OccurredFromDate'] <= end_date)
+            filtered_df = filtered_df.loc[mask]
         
         if len(filtered_df) == 0:
             return pd.DataFrame()
