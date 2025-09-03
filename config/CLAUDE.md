@@ -15,27 +15,53 @@ Atlanta crime statistics dashboard built with Plotly Dash that visualizes crime 
 pip install -r requirements.txt
 
 # The user will run the dashboard with:
-# python dashboard.py
+# python src/dashboard.py
 # Dashboard will be available at http://127.0.0.1:8050/
+```
+
+## Project Structure
+
+```
+atl-crime-map/
+├── src/                      # Core application code
+│   ├── dashboard.py         # Main Dash application
+│   └── data_loader.py       # Data loading utilities
+├── data/                    # All data files
+│   ├── raw/                 # Raw CSV crime data
+│   └── processed/           # Processed/transformed data
+├── scripts/                 # Processing and analysis scripts
+│   └── data_processing/     # Data transformation scripts
+├── config/                  # Configuration files
+│   ├── config.py           # Centralized settings
+│   └── CLAUDE.md           # This file
+├── docs/                    # Documentation
+└── requirements.txt         # Python dependencies
 ```
 
 ## Architecture
 
 ### Data Pipeline
-1. **data_loader.py**: CrimeDataLoader class handles CSV parsing and data transformations
-   - Loads crime data from `raw-data/AxonCrimeData_Export_view_6594257177302908045.csv` (2021-2025 data)
+1. **src/data_loader.py**: CrimeDataLoader class handles CSV parsing and data transformations
+   - Loads crime data from `data/raw/AxonCrimeData_Export_view_6594257177302908045.csv` (2021-2025 data)
    - Filters crimes by address using case-insensitive substring matching
    - Provides quarterly and monthly aggregation methods
    - Handles malformed dates with `errors='coerce'`
 
-2. **dashboard.py**: Plotly Dash application with interactive visualizations
+2. **src/dashboard.py**: Plotly Dash application with interactive visualizations
    - Single-page app with date range filtering
    - Real-time updates via callbacks
    - Virtual scrolling for large datasets in crime details table
 
+3. **config/config.py**: Centralized configuration
+   - Data paths and file names
+   - Dashboard settings
+   - Address configuration
+   - Date formats and time periods
+
 ### Data Files
-- **raw-data/** contains three CSV files spanning different time periods:
-  - `Crime_Data_1997_2008_*.csv`: Historical data (1997-2008)
+- **data/raw/** contains CSV files spanning different time periods:
+  - `Crime_Data_1997_2002.csv`: Historical data (1997-2002)
+  - `Crime_Data_2003_2008.csv`: Historical data (2003-2008)
   - `2009_2020CrimeData_*.csv`: Mid-period data (2009-2020)  
   - `AxonCrimeData_Export_view_*.csv`: Current data (2021-2025) - actively used
 

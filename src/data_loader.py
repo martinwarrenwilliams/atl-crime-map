@@ -1,18 +1,24 @@
 import pandas as pd
 from datetime import datetime
 import os
+import sys
+from pathlib import Path
+
+# Add parent directory to path to import config
+sys.path.append(str(Path(__file__).parent.parent))
+from config import config
 
 class CrimeDataLoader:
-    def __init__(self, data_path="raw-data"):
-        self.data_path = data_path
-        self.latest_file = "AxonCrimeData_Export_view_6594257177302908045.csv"
+    def __init__(self, data_path=None):
+        self.data_path = data_path if data_path else config.RAW_DATA_DIR
+        self.latest_file = config.LATEST_DATA_FILE
         self.df = None
         
     def load_latest_data(self):
         file_path = os.path.join(self.data_path, self.latest_file)
         self.df = pd.read_csv(file_path, low_memory=False)
         
-        date_format = '%m/%d/%Y %I:%M:%S %p'
+        date_format = config.DATE_FORMAT
         self.df['ReportDate'] = pd.to_datetime(self.df['ReportDate'], format=date_format, errors='coerce')
         self.df['OccurredFromDate'] = pd.to_datetime(self.df['OccurredFromDate'], format=date_format, errors='coerce')
         self.df['OccurredToDate'] = pd.to_datetime(self.df['OccurredToDate'], format=date_format, errors='coerce')

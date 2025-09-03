@@ -1,3 +1,8 @@
+import sys
+from pathlib import Path
+# Add parent directory to path to import config
+sys.path.append(str(Path(__file__).parent.parent))
+
 import dash
 from dash import dcc, html, dash_table
 from dash.dependencies import Input, Output
@@ -9,13 +14,14 @@ import os
 from datetime import datetime, timedelta
 from data_loader import CrimeDataLoader
 from dateutil.relativedelta import relativedelta
+from config import config
 
 app = dash.Dash(__name__)
 
 loader = CrimeDataLoader()
 loader.load_latest_data()
 
-PRIMARY_ADDRESS = "234 MEMORIAL DR SW"
+PRIMARY_ADDRESS = config.PRIMARY_ADDRESS
 
 app.layout = html.Div([
     html.Div([
