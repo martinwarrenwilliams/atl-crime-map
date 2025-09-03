@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Read(d:\\local-repo\\atl-crime-map\\raw-data/**)"
+      "Read(d:\\local-repo\\atl-crime-map\\raw-data/**)",
+      "Bash(tree:*)"
     ],
     "deny": [],
     "ask": []

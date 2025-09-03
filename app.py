@@ -1,17 +1,12 @@
-import sys
-from pathlib import Path
-# Add parent directory to path to import config
-sys.path.append(str(Path(__file__).parent))
-
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 import os
 from datetime import datetime, timedelta
-from src.data_loader import CrimeDataLoader
 from dateutil.relativedelta import relativedelta
-from config import config
+from lib.data_loader import CrimeDataLoader
+from lib import config
 
 st.set_page_config(
     page_title="Atlanta Crime Dashboard",
