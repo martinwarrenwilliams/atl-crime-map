@@ -61,6 +61,10 @@ with col3:
         st.session_state.start_date = min_date.date() if pd.notna(min_date) else datetime(2021, 1, 1).date()
         st.session_state.end_date = max_date.date() if pd.notna(max_date) else datetime.now().date()
         st.rerun()
+    
+    # Display available date range as helper text
+    if pd.notna(min_date) and pd.notna(max_date):
+        st.caption(f"Available: {min_date.strftime('%m/%d/%Y')} - {max_date.strftime('%m/%d/%Y')}")
 
 # Update session state
 st.session_state.start_date = start_date
@@ -100,7 +104,16 @@ filtered_df_for_severity = filtered_df[filtered_df['severity'] != 'Exclude']
 start_dt = pd.to_datetime(start_date)
 end_dt = pd.to_datetime(end_date)
 rd = relativedelta(end_dt, start_dt)
-duration_str = f"{rd.years} years, {rd.months} months"
+# Compact duration format
+if rd.years > 0 and rd.months > 0:
+    duration_str = f"{rd.years}y {rd.months}m"
+elif rd.years > 0:
+    duration_str = f"{rd.years}y"
+elif rd.months > 0:
+    duration_str = f"{rd.months}m"
+else:
+    days = (end_dt - start_dt).days
+    duration_str = f"{days}d"
 
 # Build quarter range
 q_start = start_dt.to_period('Q')
@@ -125,17 +138,17 @@ avg_high_per_quarter = float(high_counts.mean()) if len(high_counts) > 0 else 0.
 
 # Display overview stats
 st.markdown("### Overview Statistics")
-col1, col2, col3, col4, col5 = st.columns(5)
+col1, col2, col3, col4, col5 = st.columns([1, 1, 1.2, 1, 1])
 with col1:
     st.metric("Duration", duration_str)
 with col2:
-    st.metric("Total Crimes", f"{total_crimes:,}")
+    st.metric("Total", f"{total_crimes:,}")
 with col3:
-    st.metric("High Severity Crimes", f"{total_high:,}")
+    st.metric("High Severity", f"{total_high:,}")
 with col4:
-    st.metric("Avg High Severity/Quarter", f"{avg_high_per_quarter:.1f}")
+    st.metric("High/Qtr", f"{avg_high_per_quarter:.1f}")
 with col5:
-    st.metric("Avg Crimes/Quarter", f"{avg_crimes_per_quarter:.1f}")
+    st.metric("Total/Qtr", f"{avg_crimes_per_quarter:.1f}")
 
 # Crime severity grouped chart
 st.markdown("### Crimes by Severity Group")
