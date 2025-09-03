@@ -36,6 +36,10 @@ DEFAULT_DATE_RANGE = {
 # Date parsing format for CSV files
 DATE_FORMAT = "%m/%d/%Y %I:%M:%S %p"
 
+# Display formats for UI consistency
+DISPLAY_DATE_FORMAT = "%m/%d/%Y"
+DISPLAY_DATETIME_FORMAT = "%m/%d/%Y %I:%M %p"
+
 # Crime severity levels (for future implementation)
 SEVERITY_LEVELS = {
     "HIGH": ["HOMICIDE", "RAPE", "ROBBERY", "AGG ASSAULT"],

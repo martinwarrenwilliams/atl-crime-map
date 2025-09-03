@@ -31,44 +31,41 @@ full_df = loader.filter_by_address(PRIMARY_ADDRESS)
 min_date = full_df['OccurredFromDate'].min() if len(full_df) > 0 else datetime(2021, 1, 1)
 max_date = full_df['OccurredFromDate'].max() if len(full_df) > 0 else datetime.now()
 
-# Initialize session state for dates if not exists
-if 'start_date' not in st.session_state:
-    st.session_state.start_date = min_date.date() if pd.notna(min_date) else datetime(2021, 1, 1).date()
-if 'end_date' not in st.session_state:
-    st.session_state.end_date = max_date.date() if pd.notna(max_date) else datetime.now().date()
+# Initialize session state for dates if not exists (using widget keys)
+if 'start_date_input' not in st.session_state:
+    st.session_state.start_date_input = min_date.date() if pd.notna(min_date) else datetime(2021, 1, 1).date()
+if 'end_date_input' not in st.session_state:
+    st.session_state.end_date_input = max_date.date() if pd.notna(max_date) else datetime.now().date()
 
 # Date range filter with reset button
 col1, col2, col3 = st.columns([1, 1, 2])
 with col1:
     start_date = st.date_input(
         "Start Date",
-        value=st.session_state.start_date,
         min_value=min_date.date() if pd.notna(min_date) else datetime(2020, 1, 1).date(),
         max_value=datetime.now().date(),
+        format="MM/DD/YYYY",
         key='start_date_input'
     )
 with col2:
     end_date = st.date_input(
         "End Date",
-        value=st.session_state.end_date,
         min_value=min_date.date() if pd.notna(min_date) else datetime(2020, 1, 1).date(),
         max_value=datetime.now().date(),
+        format="MM/DD/YYYY",
         key='end_date_input'
     )
 with col3:
     st.write("")  # Empty space for alignment
     if st.button("Reset Dates", type="secondary"):
-        st.session_state.start_date = min_date.date() if pd.notna(min_date) else datetime(2021, 1, 1).date()
-        st.session_state.end_date = max_date.date() if pd.notna(max_date) else datetime.now().date()
+        # Update the widget keys directly
+        st.session_state.start_date_input = min_date.date() if pd.notna(min_date) else datetime(2021, 1, 1).date()
+        st.session_state.end_date_input = max_date.date() if pd.notna(max_date) else datetime.now().date()
         st.rerun()
     
     # Display available date range as helper text
     if pd.notna(min_date) and pd.notna(max_date):
-        st.caption(f"Available: {min_date.strftime('%m/%d/%Y')} - {max_date.strftime('%m/%d/%Y')}")
-
-# Update session state
-st.session_state.start_date = start_date
-st.session_state.end_date = end_date
+        st.caption(f"Available: {min_date.strftime(config.DISPLAY_DATE_FORMAT)} - {max_date.strftime(config.DISPLAY_DATE_FORMAT)}")
 
 # Filter data
 filtered_df = full_df.copy()
@@ -306,7 +303,7 @@ with col2:
 st.markdown("### Crime Details")
 table_df = filtered_df[['IncidentNumber', 'OccurredFromDate', 'NIBRS_Offense', 
                         'LocationType', 'FireArmInvolved']].copy()
-table_df['OccurredFromDate'] = table_df['OccurredFromDate'].dt.strftime('%Y-%m-%d %H:%M')
+table_df['OccurredFromDate'] = table_df['OccurredFromDate'].dt.strftime(config.DISPLAY_DATETIME_FORMAT)
 table_df = table_df.sort_values('OccurredFromDate', ascending=False)
 table_df.columns = ['Incident #', 'Date/Time', 'Crime Type', 'Location Type', 'Firearm']
 
