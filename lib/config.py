@@ -27,7 +27,11 @@ SEVERITY_CROSSWALK_FILE = "atl_ucr_nibrs_severity_crosswalk_full.csv"
 SEVERITY_CROSSWALK_PATH = PROCESSED_DATA_DIR / SEVERITY_CROSSWALK_FILE
 
 # Dashboard configuration
-PRIMARY_ADDRESS = "234 MEMORIAL DR SW"
+LOCATIONS = {
+    "234 MEMORIAL DR SW": "The Welcome House",
+    "277 MORELAND AVE SE": "Ralph David House"
+}
+DEFAULT_LOCATION = "234 MEMORIAL DR SW"
 DEFAULT_DATE_RANGE = {
     "start": "2021-01-01",
     "end": "2025-12-31"

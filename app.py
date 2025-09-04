@@ -21,13 +21,41 @@ def load_crime_data():
     return loader
 
 loader = load_crime_data()
-PRIMARY_ADDRESS = config.PRIMARY_ADDRESS
 
 st.title("Atlanta Crime Statistics Dashboard")
-st.subheader(f"Address: {PRIMARY_ADDRESS}")
+
+# Initialize session state for selected location
+if 'selected_address' not in st.session_state:
+    st.session_state.selected_address = config.DEFAULT_LOCATION
+    
+# Create location selector
+location_options = {f"{name} ({address})": address for address, name in config.LOCATIONS.items()}
+selected_option = st.selectbox(
+    "Select Location:",
+    options=list(location_options.keys()),
+    index=list(location_options.values()).index(st.session_state.selected_address),
+    key='location_selector'
+)
+
+# Get the address from the selected option
+selected_address = location_options[selected_option]
+location_name = config.LOCATIONS[selected_address]
+
+# Check if address changed
+if selected_address != st.session_state.selected_address:
+    st.session_state.selected_address = selected_address
+    # Reset date filters when address changes
+    if 'start_date_input' in st.session_state:
+        del st.session_state.start_date_input
+    if 'end_date_input' in st.session_state:
+        del st.session_state.end_date_input
+    st.rerun()
+
+st.subheader(f"Location: {location_name}")
+st.caption(f"Address: {selected_address}")
 
 # Get the full data to determine min/max dates
-full_df = loader.filter_by_address(PRIMARY_ADDRESS)
+full_df = loader.filter_by_address(selected_address)
 min_date = full_df['OccurredFromDate'].min() if len(full_df) > 0 else datetime(2021, 1, 1)
 max_date = full_df['OccurredFromDate'].max() if len(full_df) > 0 else datetime.now()
 
@@ -216,7 +244,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.markdown("### Crime Trends Over Time (Quarterly)")
-    time_data = loader.get_quarterly_time_series_data(PRIMARY_ADDRESS, start_date, end_date)
+    time_data = loader.get_quarterly_time_series_data(selected_address, start_date, end_date)
     if len(time_data) > 0:
         time_series_fig = go.Figure()
         time_series_fig.add_trace(go.Scatter(
