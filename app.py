@@ -22,7 +22,7 @@ def load_crime_data():
 
 loader = load_crime_data()
 
-st.title("Atlanta Crime Statistics Dashboard")
+st.title("Atlanta Crime Statistics")
 
 # Initialize session state for selected location
 if 'selected_address' not in st.session_state:
