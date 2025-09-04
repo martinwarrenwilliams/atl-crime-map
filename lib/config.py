@@ -29,7 +29,8 @@ SEVERITY_CROSSWALK_PATH = PROCESSED_DATA_DIR / SEVERITY_CROSSWALK_FILE
 # Dashboard configuration
 LOCATIONS = {
     "234 MEMORIAL DR SW": "The Welcome House",
-    "277 MORELAND AVE SE": "Ralph David House"
+    "277 MORELAND AVE SE": "Ralph David House",
+    "265 KIRKWOOD RD NE": "Presley Woods"
 }
 DEFAULT_LOCATION = "234 MEMORIAL DR SW"
 DEFAULT_DATE_RANGE = {
