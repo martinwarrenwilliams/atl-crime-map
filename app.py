@@ -268,7 +268,24 @@ with col1:
                 tickmode='array',
                 tickvals=time_data['quarter_date'],
                 ticktext=time_data['quarter_label'],
-                tickangle=-45
+                tickangle=-45,
+                showline=True,
+                linewidth=1,
+                linecolor='gray',
+                showgrid=True,
+                gridcolor='lightgray',
+                zeroline=True
+            ),
+            yaxis=dict(
+                showline=True,
+                linewidth=1,
+                linecolor='gray',
+                showgrid=True,
+                gridcolor='lightgray',
+                zeroline=True,
+                zerolinewidth=2,
+                zerolinecolor='gray',
+                rangemode='tozero'  # Always include zero in the y-axis range
             ),
             hovermode='x unified'
         )
