@@ -331,8 +331,9 @@ with col2:
 st.markdown("### Crime Details")
 table_df = filtered_df[['IncidentNumber', 'OccurredFromDate', 'NIBRS_Offense', 
                         'LocationType', 'FireArmInvolved']].copy()
-table_df['OccurredFromDate'] = table_df['OccurredFromDate'].dt.strftime(config.DISPLAY_DATETIME_FORMAT)
+# Sort by date BEFORE converting to string to ensure proper chronological order
 table_df = table_df.sort_values('OccurredFromDate', ascending=False)
+table_df['OccurredFromDate'] = table_df['OccurredFromDate'].dt.strftime(config.DISPLAY_DATETIME_FORMAT)
 table_df.columns = ['Incident #', 'Date/Time', 'Crime Type', 'Location Type', 'Firearm']
 
 st.dataframe(
