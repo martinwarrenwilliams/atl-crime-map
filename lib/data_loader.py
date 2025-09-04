@@ -72,11 +72,32 @@ class CrimeDataLoader:
                    (filtered_df['OccurredFromDate'] <= end_date)
             filtered_df = filtered_df.loc[mask]
         
-        if len(filtered_df) == 0:
-            return pd.DataFrame()
+        # Generate complete quarter range
+        if start_date is not None and end_date is not None:
+            q_start = start_date.to_period('Q')
+            q_end = end_date.to_period('Q')
+        else:
+            # If no date range provided, use data's min/max
+            if len(filtered_df) == 0:
+                return pd.DataFrame()
+            q_start = filtered_df['OccurredFromDate'].min().to_period('Q')
+            q_end = filtered_df['OccurredFromDate'].max().to_period('Q')
         
-        filtered_df['quarter'] = filtered_df['OccurredFromDate'].dt.to_period('Q')
-        time_series = filtered_df.groupby('quarter').size().reset_index(name='count')
+        quarter_range = pd.period_range(start=q_start, end=q_end, freq='Q')
+        
+        if len(filtered_df) == 0:
+            # Return empty series with all quarters set to 0
+            time_series = pd.DataFrame({
+                'quarter': quarter_range,
+                'count': 0
+            })
+        else:
+            filtered_df['quarter'] = filtered_df['OccurredFromDate'].dt.to_period('Q')
+            # Group by quarter and reindex to include all quarters
+            quarter_counts = filtered_df.groupby('quarter').size()
+            quarter_counts = quarter_counts.reindex(quarter_range, fill_value=0)
+            time_series = quarter_counts.reset_index(name='count')
+            time_series.columns = ['quarter', 'count']
         
         time_series['quarter_label'] = time_series['quarter'].apply(lambda x: f"{x.year} Q{x.quarter}")
         time_series['quarter_date'] = time_series['quarter'].dt.to_timestamp()
